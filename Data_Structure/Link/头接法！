@@ -1,0 +1,2 @@
+node -> next = ans;
+ans = node; // node 成为新的头

@@ -1,0 +1,35 @@
+1.T371  
+    a^b是不带进位的和
+    (a&b)<<1是进位
+            class Solution {
+            public:
+                int getSum(int a, int b) {
+                    // a ^ b是没有进位的和
+                    // (a & b) << 1 是a和b做运算的进位
+                    return b = 0 ? a : getSum((a ^ b), (a & b) << 1);
+                }
+            };
+
+2.T136 T476
+    x ^ 1s = ~x 即求掩码mask为关键,方法有2个
+        方法1：
+            int temp = num, mask = 0;
+            while(temp > 0) {
+                temp >>= 1;
+                mask = (mask << 1) + 1;
+            }
+        方法2：
+            int mask = num;
+            mask |= mask >> 1;
+            mask |= mask >> 2;
+            mask |= mask >> 4;
+            mask |= mask >> 8;
+            mask |= mask >> 16;
+    利用 x ^ x = 0 的特点，可以将三个数中重复的两个数去除，只留下另一个数。1^1^2 = 2
+    
+3.T231
+    n > 0 && (n & (n - 1)) == 0; // 2 的幂次方的必要条件
+    (n & (n - 1)) 可以实现去掉n的最右边的一个1
+
+4.T260
+    diff &= -diff; //得到diff最右侧不为0的位

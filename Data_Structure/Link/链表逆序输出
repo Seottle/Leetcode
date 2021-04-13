@@ -1,0 +1,6 @@
+void Print(ListNode* head) {
+    if(head == NULL)
+        return;
+    Print(head -> next);
+    cout << head -> val;
+}

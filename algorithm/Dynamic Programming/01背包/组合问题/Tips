@@ -1,0 +1,18 @@
+dp[i] += dp[i-num]
+
+
+
+for(int i = 1; i <= target; ++i) { //该代码计算的结果是排列数
+    for(int j = 0; j < nums.size(); ++j) {
+        if(i >= num[j])
+            dp[i] += dp[i - num[j]];
+    }
+}
+
+for(int i = 0; i < nums.size(); ++i) { //该代码计算的结果是组合数
+    for(int j = 1; j <= target; ++j) {
+        if(j >= nums[i]) {
+            dp[j] += dp[j - nums[i]];
+        }
+    }
+}
